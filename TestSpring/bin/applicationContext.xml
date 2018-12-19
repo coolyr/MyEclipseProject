@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- 在容器文件中配置bean(service/dao/domain/action/数据源) -->
+	<!-- bean元素的作用是，当我们的spring框架加载时候，spring就会自动的创建一个bean对象，并放入内存 UserService 
+		userSerivce=new UserService(); userSerivce.setName("韩顺平"); -->
+
+	<bean id="userService" class="com.service.UserService">
+		<!-- 这里就体现出注入的概念. -->
+		<property name="name">
+			<value>userService</value>
+		</property>
+		<!-- 在UserService中引用ByeService bean -->
+		<!-- name='byeService' :: UserService类中的属性名 -->
+		<!-- ref="byeService" :: 注册的bean对象的id号 <bean id="byeService"> -->
+		<property name="byeService" ref="byeService"></property>
+	</bean>
+
+	<bean id="byeService" class="com.service.ByeService">
+		<!-- 这里就体现出注入的概念. 也可以使用value注入属性值 -->
+		<property name="name" value="byeService" />
+	</bean>
+
+</beans>

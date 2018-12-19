@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="loginForm" type="cn.pku.coolyr.struts.form.LoginForm" />
+	</form-beans>
+
+	<global-exceptions />
+
+	<!-- 全局跳转 -->
+	<global-forwards>
+		<forward name="err" path="/err.jsp" />
+	</global-forwards>
+
+
+	<action-mappings>
+		<action attribute="loginForm" name="loginForm" path="/login"
+			scope="request" type="cn.pku.coolyr.struts.action.LoginAction"
+			cancellable="true" />
+
+		<!-- 分派Action -->
+		<action attribute="loginForm" input="/login.jsp" name="loginForm"
+			parameter="flag" path="/loginAndout" scope="request"
+			type="cn.pku.coolyr.struts.action.LoginAndoutAction" cancellable="true">
+
+			<forward name="loginok" path="/ok.jsp" />
+			<forward name="gotologin" path="/login.jsp" />
+		</action>
+		
+	</action-mappings>
+	
+	<message-resources parameter="cn.pku.coolyr.struts.ApplicationResources" />
+</struts-config>
+

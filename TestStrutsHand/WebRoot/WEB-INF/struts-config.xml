@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+
+	<!-- 配置表单Form -->
+	<form-beans>
+		<!-- name ：表单名字，可以随意写，但是我们建议取名规范：表单类名首字母小写 -->
+		<!-- type ： 表单类的全路径 -->
+		<form-bean name="loginForm" type="cn.pku.coolyr.Forms.LoginForm" />
+
+		<!-- 配置动态表单 -->
+		<form-bean name="registerForm" type="org.apache.struts.action.DynaActionForm" >
+		<!-- 该表单的属性是配置出来的,与相应的JSP页面的输入相对应 -->
+		<form-property name="name" type="java.lang.String"></form-property>
+		<form-property name="passwd" type="java.lang.String"></form-property>
+		<form-property name="email" type="java.lang.String"></form-property>
+		</form-bean>
+	</form-beans>
+
+	<!-- 配置全局跳转页面 -->
+	<global-forwards>
+		<forward name="globalerr" path="/globalerr.jsp" />
+	</global-forwards>
+
+	<!-- 配置Action -->
+	<action-mappings>
+		<!-- 配置一个具体的Action对象 -->
+		<!-- path: 访问该Action的资源名(URI中的资源名，去掉后缀) 【 http://ip:8080/(应用名)TestStruts/(资源名)login.do 
+			】 -->
+		<!-- name: 用于关联上面的某个表单 -->
+		<!-- type: 该Action类的全路径 -->
+		<!-- scope="request" 表示该Action对应的表单LoginForm对象的生命周期为 request ： request.setAttribute("loginForm",LoginForm) -->
+		<!-- scope="session" 表示该Action对应的表单LoginForm对象的生命周期为 session ： request.getSession.setAttribute("loginForm",LoginForm) -->
+		<!-- scope 默认为Session域 -->
+		<action path="/login" name="loginForm" scope="request"
+			type="cn.pku.coolyr.Actions.LoginAction">
+			<!-- 这里配置跳转关系 -->
+			<!-- name: 表示结果名称 -->
+			<!-- path: 跳转到那个页面 -->
+			<forward name="ok" path="/WEB-INF/ok.jsp" />
+			<forward name="err" path="/WEB-INF/err.jsp" />
+		</action>
+
+		<!-- parameter='flag'定义的是分派Action区分处理方法的标注 -->
+		<action path="/register" name="registerForm" scope="request" parameter="flag"
+			type="cn.pku.coolyr.Actions.RegisterAction">
+			<forward name="registerOk" path="/registerOk.jsp" />
+		</action>
+	</action-mappings>
+
+
+</struts-config>
+
+
+
+
+
+
+
+

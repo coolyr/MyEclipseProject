@@ -1,0 +1,9 @@
+package com.sina.service.inter;
+
+public interface BaseInterface
+{
+	// 把一些通用的方法，声明到该基础接口
+	// 通过id号，来获取一个对象实例
+	public Object findById(Class clazz, java.io.Serializable id);
+	// findById(Users.class,12);//因为我们所有的包装类都实现了该接口
+}

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/login.do" location="525,30" dimension="263,104" />
+  <StrutsActivity path="/loginAndout.do" location="795,360" dimension="305,104" />
+  <StrutsActivity path="/register.do" location="50,550" dimension="279,104" />
+  <StrutsActivity path="/fileUp.do" location="480,705" dimension="267,104" />
+  <StrutsActivity path="/userList.do" location="450,975" dimension="277,104" />
+  <StrutsActivity path="/fileDown.do" location="585,1155" dimension="283,104" />
+  <StrutsActivity path="/file.do" location="950,550" dimension="250,104" />
+  <StrutsActivity path="/uploadMore.do" location="950,1250" dimension="306,104" />
+  <StrutsActivity path="globalerr;6" location="102,375" dimension="150,100" />
+  <StrutsActivity path="/err.jsp" location="315,150" dimension="150,100" />
+  <StrutsActivity path="/ok.jsp" location="30,225" dimension="150,100" />
+  <StrutsActivity path="/login.jsp" location="30,60" dimension="150,100" />
+  <StrutsActivity path="/okDispatch.jsp" location="840,180" dimension="150,100" />
+  <StrutsActivity path="/loginForDispatch.jsp" location="555,375" dimension="150,100" />
+  <StrutsActivity path="/registerOk.jsp" location="675,570" dimension="119,53" />
+  <StrutsActivity path="/fileok.jsp" location="270,825" dimension="150,100" />
+  <StrutsActivity path="/fileerr.jsp" location="780,840" dimension="150,100" />
+  <StrutsActivity path="/FileUp.jsp" location="195,690" dimension="150,100" />
+  <StrutsActivity path="/userList.jsp" location="933,1016" dimension="150,100" />
+  <StrutsActivity path="/fileDownErr.jsp" location="360,1155" dimension="150,100" />
+  <StrutsActivity path="/globalerr.jsp" location="345,375" dimension="150,100" />
+  <StrutsTransition id="/uploadMore.do,fileDownErr,/fileDownErr.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="950,1302" />
+      <AbsolutePoint location="435,1302" />
+      <AbsolutePoint location="435,1255" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/fileUp.do,fileok,/fileok.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="613,809" />
+      <AbsolutePoint location="613,875" />
+      <AbsolutePoint location="420,875" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="globalerr;6,null,/globalerr.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="252,425" />
+      <AbsolutePoint location="345,425" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/loginAndout.do,gotologin,/loginForDispatch.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="795,382" />
+      <AbsolutePoint location="705,382" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/login.do,ok,/ok.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="635,134" />
+      <AbsolutePoint location="635,275" />
+      <AbsolutePoint location="180,275" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/FileUp.jsp,null,/fileUp.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="345,757" />
+      <AbsolutePoint location="480,757" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/userList.jsp,null,/fileDown.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="933,1094" />
+      <AbsolutePoint location="712,1094" />
+      <AbsolutePoint location="712,1155" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/fileUp.do,fileerr,/fileerr.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="747,757" />
+      <AbsolutePoint location="855,757" />
+      <AbsolutePoint location="855,840" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/fileDown.do,fileDownErr,/fileDownErr.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="585,1205" />
+      <AbsolutePoint location="510,1205" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/uploadMore.do,fileok,/fileok.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1103,1302" />
+      <AbsolutePoint location="345,875" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/uploadMore.do,fileDownOk,/userList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1008,1250" />
+      <AbsolutePoint location="1008,1116" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/login.do,err,/err.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="525,112" />
+      <AbsolutePoint location="390,112" />
+      <AbsolutePoint location="390,150" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/loginAndout.do,loginok,/okDispatch.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="915,360" />
+      <AbsolutePoint location="915,280" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/fileDown.do,fileDownOk,/userList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="868,1207" />
+      <AbsolutePoint location="978,1207" />
+      <AbsolutePoint location="978,1116" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/userList.do,showUserList,/userList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="727,1064" />
+      <AbsolutePoint location="933,1064" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/loginForDispatch.jsp,null,/loginAndout.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="705,412" />
+      <AbsolutePoint location="795,412" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/uploadMore.do,fileerr,/fileerr.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1103,1302" />
+      <AbsolutePoint location="855,890" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/login.jsp,null,/login.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="180,82" />
+      <AbsolutePoint location="525,82" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/register.do,registerOk,/registerOk.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="329,596" />
+      <AbsolutePoint location="675,596" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+

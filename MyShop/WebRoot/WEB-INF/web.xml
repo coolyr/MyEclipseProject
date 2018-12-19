@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<servlet>
+		<servlet-name>ShowGoodsServlet</servlet-name>
+		<servlet-class>cn.pku.coolyr.control.ShowGoodsServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ShoppingServlet</servlet-name>
+		<servlet-class>cn.pku.coolyr.control.ShoppingServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ShoppingCL</servlet-name>
+		<servlet-class>cn.pku.coolyr.control.ShoppingCL</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LoginCL</servlet-name>
+		<servlet-class>cn.pku.coolyr.control.LoginCL</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>OrderCL</servlet-name>
+		<servlet-class>cn.pku.coolyr.control.OrderCL</servlet-class>
+	</servlet>
+
+
+
+
+
+	<servlet-mapping>
+		<servlet-name>ShowGoodsServlet</servlet-name>
+		<url-pattern>/ShowGoodsServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ShoppingServlet</servlet-name>
+		<url-pattern>/ShoppingServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ShoppingCL</servlet-name>
+		<url-pattern>/ShoppingCL</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginCL</servlet-name>
+		<url-pattern>/LoginCL</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>OrderCL</servlet-name>
+		<url-pattern>/OrderCL</url-pattern>
+	</servlet-mapping>
+
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

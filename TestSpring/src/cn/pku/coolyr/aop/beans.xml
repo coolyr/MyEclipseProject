@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd" 
+				>
+
+	<!--1* 配置被代理的对象 -->
+	<bean id="test1Service" class="cn.pku.coolyr.aop.Test1Service">
+		<property name="name" value="coolyr" />
+	</bean>
+	
+<!-- 配置前置通知 
+
+	proxyFactoryBean implements TestServiceInter,TestServiceInter2{
+		public void sayHello();
+	}
+	
+	思考
+	interface Inter1{};
+	class A implements Inter1,Inter2{
+	}
+	Inter1 a=new A();
+	Inter2 b=(Inter2)a;
+-->
+	<!-- 2* 配置前置通知 -->
+	<bean id="myMethodBeforeAdvice" class="cn.pku.coolyr.aop.MyMethodBeforeAdvice" />
+	<!-- 2* 配置后置通知 -->
+	<bean id="myAfterReturningAdvice" class="cn.pku.coolyr.aop.MyAfterReturningAdvice" />
+	<!-- 2* 配置环绕通知 -->
+	<bean id="myMethodInterceptor" class="cn.pku.coolyr.aop.MyMethodInterceptor" />
+	<!-- 2* 配置异常通知 -->
+	<bean id="myThrowsAdvice" class="cn.pku.coolyr.aop.MyThrowsAdvice" />
+
+	<!--3* 配置代理对象 -->
+	<bean id="proxyFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<!--*3.1 代理接口集 -->
+		<property name="proxyInterfaces">
+			<list>
+				<value>cn.pku.coolyr.aop.TestServiceInter</value>
+				<value>cn.pku.coolyr.aop.TestServiceInter2</value>
+			</list>
+		</property>
+
+		<!-- *3.2 把通知织入到代理对象 -->
+		<property name="interceptorNames">
+			<list>
+				<!-- 相当于包MyMethodBeforeAdvice前置通知和代理对象关联 -->
+				<!-- 我们也 可以把通知看出拦截器,struts2核心拦截器 -->
+				<!-- 植入前置通知 -->
+				<value>myMethodBeforeAdvice</value>
+				<!-- 植入后置通知 -->
+				<value>myAfterReturningAdvice</value>
+				<!-- 植入环绕通知 -->
+				<value>myMethodInterceptor</value>
+				<!-- 植入异常通知 -->
+				<value>myThrowsAdvice</value>
+			</list>
+		</property>
+
+		<!-- *3.3 配置被代理对象,可以指定 -->
+		<!-- 该对象实现了上面配置的那些个代理接口就有那几个切入点（运行通知里的方法） -->
+		<property name="target" ref="test1Service" />
+	</bean>
+</beans>

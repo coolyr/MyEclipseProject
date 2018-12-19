@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<servlet>
+		<!-- Servlet注册名 -->
+		<servlet-name>TestServlet</servlet-name>
+		<!-- Servlet类的全路径（包名+类名） -->
+		<servlet-class>cn.pku.coolyr.TestServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>MyInfoForm</servlet-name>
+		<servlet-class>cn.pku.coolyr.Form.MyInfoForm</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MyInfoServlet</servlet-name>
+		<servlet-class>cn.pku.coolyr.Form.MyInfoServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LoginUI</servlet-name>
+		<servlet-class>cn.pku.coolyr.Login.LoginUI</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>cn.pku.coolyr.Login.LoginServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LoginDispatcherServlet</servlet-name>
+		<servlet-class>cn.pku.coolyr.Login.LoginDispatcherServlet</servlet-class>
+	</servlet>
+	<servlet>
+
+		<servlet-name>CreateCookie</servlet-name>
+		<servlet-class>cn.pku.coolyr.cookie.CreateCookie</servlet-class>
+	</servlet>
+	<servlet>
+
+		<servlet-name>ReadCookie</servlet-name>
+		<servlet-class>cn.pku.coolyr.cookie.ReadCookie</servlet-class>
+	</servlet>
+	<servlet>
+
+		<servlet-name>LoginUICheckCode</servlet-name>
+		<servlet-class>cn.pku.coolyr.checkCode.LoginUICheckCode</servlet-class>
+	</servlet>
+	<servlet>
+
+		<servlet-name>CreateCheckCode</servlet-name>
+		<servlet-class>cn.pku.coolyr.checkCode.CreateCheckCode</servlet-class>
+	</servlet>
+	<servlet>
+
+		<servlet-name>OK</servlet-name>
+		<servlet-class>cn.pku.coolyr.OK</servlet-class>
+	</servlet>
+	<servlet>
+
+		<servlet-name>ERROR</servlet-name>
+		<servlet-class>cn.pku.coolyr.ERROR</servlet-class>
+	</servlet>
+	<servlet>
+
+		<servlet-name>LoginServletCheckCode</servlet-name>
+		<servlet-class>cn.pku.coolyr.checkCode.LoginServletCheckCode</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SessionCreate</servlet-name>
+		<servlet-class>cn.pku.coolyr.Session.SessionCreate</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SessionShow</servlet-name>
+		<servlet-class>cn.pku.coolyr.Session.SessionShow</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ServletContextUI</servlet-name>
+		<servlet-class>cn.pku.coolyr.ServletContext.ServletContextUI</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ServletContextRead</servlet-name>
+		<servlet-class>cn.pku.coolyr.ServletContext.ServletContextRead</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>InitServlet</servlet-name>
+		<servlet-class>cn.pku.coolyr.WebCount.InitServlet</servlet-class>
+		<!-- 配置该Servlet自动实例化 -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>LoginWC</servlet-name>
+		<servlet-class>cn.pku.coolyr.WebCount.LoginWC</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LoginServletWC</servlet-name>
+		<servlet-class>cn.pku.coolyr.WebCount.LoginServletWC</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ManagerWC</servlet-name>
+		<servlet-class>cn.pku.coolyr.WebCount.ManagerWC</servlet-class>
+	</servlet>
+
+	<!--添加一个过滤器 -->
+	<!--1.创建一个过滤器（继承Httpservlet 实现Filter接口） 2.配置过滤器，默认不生效必须配置 3.配置过滤器的顺序可以决定调用顺序。 -->
+	<filter>
+		<filter-name>MyFilter</filter-name>
+		<filter-class>cn.pku.coolyr.filter.MyFilter</filter-class>
+	</filter>
+
+
+
+	<!-- ***************************************************** -->
+
+
+
+
+	<!-- 如果希望所有的Servlet都可以访问该配置 -->
+	<context-param>
+		<param-name>context</param-name>
+		<param-value>所有的Servlet都可以访问该配置</param-value>
+	</context-param>
+
+
+
+
+	<!-- ***************************************************** -->
+
+
+
+	<!-- 对一个已经注册的Servlet的映射 -->
+	<servlet-mapping>
+		<!-- Servlet注册名 -->
+		<servlet-name>TestServlet</servlet-name>
+		<!-- Servlet访问的路径（映射路径，就是要访问的资源名，不包含应用名TestWeb） -->
+		<url-pattern>/TestServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>MyInfoForm</servlet-name>
+		<url-pattern>/MyInfoForm</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MyInfoServlet</servlet-name>
+		<url-pattern>/MyInfoServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginUI</servlet-name>
+		<url-pattern>/LoginUI</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginDispatcherServlet</servlet-name>
+		<url-pattern>/LoginDispatcherServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CreateCookie</servlet-name>
+		<url-pattern>/CreateCookie</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ReadCookie</servlet-name>
+		<url-pattern>/ReadCookie</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginUICheckCode</servlet-name>
+		<url-pattern>/LoginUICheckCode</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CreateCheckCode</servlet-name>
+		<url-pattern>/CreateCheckCode</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>OK</servlet-name>
+		<url-pattern>/OK</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ERROR</servlet-name>
+		<url-pattern>/ERROR</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginServletCheckCode</servlet-name>
+		<url-pattern>/LoginServletCheckCode</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SessionCreate</servlet-name>
+		<url-pattern>/SessionCreate</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SessionShow</servlet-name>
+		<url-pattern>/SessionShow</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ServletContextUI</servlet-name>
+		<url-pattern>/ServletContextUI</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ServletContextRead</servlet-name>
+		<url-pattern>/ServletContextRead</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>InitServlet</servlet-name>
+		<url-pattern>/InitServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginWC</servlet-name>
+		<url-pattern>/LoginWC</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginServletWC</servlet-name>
+		<url-pattern>/LoginServletWC</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ManagerWC</servlet-name>
+		<url-pattern>/ManagerWC</url-pattern>
+	</servlet-mapping>
+	
+	<filter-mapping>
+		<filter-name>MyFilter</filter-name>
+		<url-pattern>/*</url-pattern>	<!--  /*表示所有网页都过滤 -->
+	</filter-mapping>
+
+</web-app>
